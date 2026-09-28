@@ -1,0 +1,18 @@
+{
+  "author": "Thorvald Natvig",
+  "gitHubUrl": "https://github.com/thorvald/hubitat-apps",
+  "packages": [
+    {
+      "name": "Afar Room",
+      "category": "Convenience",
+      "tags": [
+        "Automations & Groups",
+        "Lights & Switches",
+        "Motion Control",
+        "Buttons"
+      ],
+      "location": "https://raw.githubusercontent.com/thorvald/hubitat-apps/main/apps/afar-room/packageManifest.json",
+      "description": "Room lighting automation with linked parent and child apps, motion sensors, and button controls."
+    }
+  ]
+}

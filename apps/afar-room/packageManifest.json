@@ -1,0 +1,28 @@
+{
+  "packageName": "Afar Room",
+  "author": "Thorvald Natvig",
+  "version": "1.0.0",
+  "dateReleased": "2026-09-27",
+  "releaseNotes": "Initial HPM package containing Afar Room and Afar Room Child.",
+  "documentationLink": "https://github.com/thorvald/hubitat-apps#afar-room",
+  "apps": [
+    {
+      "id": "cfaf60d8-59f3-42d3-9af6-afc919a028fb",
+      "name": "Afar Room",
+      "namespace": "thorvald",
+      "location": "https://raw.githubusercontent.com/thorvald/hubitat-apps/main/apps/afar-room/afar-room.groovy",
+      "required": true,
+      "oauth": false,
+      "primary": true
+    },
+    {
+      "id": "2a778b30-226c-4131-91bd-62a7fb53b6f8",
+      "name": "Afar Room Child",
+      "namespace": "thorvald",
+      "location": "https://raw.githubusercontent.com/thorvald/hubitat-apps/main/apps/afar-room/afar-room-child.groovy",
+      "required": true,
+      "oauth": false,
+      "primary": false
+    }
+  ]
+}
