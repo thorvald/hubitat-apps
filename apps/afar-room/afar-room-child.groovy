@@ -84,7 +84,7 @@ def mainPage() {
             )
         }
 
-        section(getFormat('headre-greeen', 'Devices')) {
+        section(getFormat('header-green', 'Devices')) {
             input('switches', 'capability.pushableButton',
                 title: 'Select switch(es)',
                 multiple: true,

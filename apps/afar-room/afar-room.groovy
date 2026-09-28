@@ -36,7 +36,7 @@ def installed() {
 
 def updated() {
     logDebug("Updated with settings: ${settings}")
-    logDebug("Master switch ${switches}")
+    logDebug("Master switch ${masterSwitch}")
     unsubscribe()
     initialize()
     masterSwitch.each { sw ->
@@ -98,7 +98,7 @@ def mainPage() {
                 )
             }
 
-            section(getFormat('headre-greeen', 'Master switch')) {
+            section(getFormat('header-green', 'Master switch')) {
                 input('masterSwitch', 'capability.pushableButton',
                     title: 'Select master switch(es)',
                     multiple: true,
