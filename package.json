@@ -1,0 +1,18 @@
+{
+  "name": "hubitat-apps",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Development tools for custom Hubitat apps and drivers.",
+  "scripts": {
+    "lint": "npm-groovy-lint --noserver --failon warning \"apps/**/*.groovy\"",
+    "lint:report": "npm run lint -- --output reports/groovy-lint.json",
+    "format": "npm-groovy-lint --noserver --format \"apps/**/*.groovy\"",
+    "prelint:report": "node -e \"require('node:fs').mkdirSync('reports', { recursive: true })\""
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "devDependencies": {
+    "npm-groovy-lint": "18.0.0"
+  }
+}

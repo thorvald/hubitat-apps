@@ -1,0 +1,16 @@
+{
+  "extends": "recommended",
+  "rules": {
+    "convention.CompileStatic": "off",
+    "convention.NoDef": "off",
+    "convention.VariableTypeRequired": "off",
+    "convention.FieldTypeRequired": "off",
+    "convention.MethodParameterTypeRequired": "off",
+    "convention.MethodReturnTypeRequired": "off",
+    "comments.ClassJavadoc": "off",
+    "formatting.Indentation": {
+      "spacesPerIndentLevel": 4,
+      "severity": "info"
+    }
+  }
+}
