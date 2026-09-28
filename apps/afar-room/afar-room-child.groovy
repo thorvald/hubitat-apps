@@ -1,6 +1,6 @@
 def setVersion() {
     state.name = 'Afar Room Child'
-    state.version = '1.0.1'
+    state.version = '1.0.2'
 }
 
 definition(
@@ -225,7 +225,7 @@ def buttonHandler(evt) {
         logDebug('Double Off')
         parent.buttonHandler(evt)
     } else {
-        parent.anyButtonPressed()
+        parent.anyButtonPressed(evt)
         buttonAction(evt)
     }
 }
@@ -252,6 +252,7 @@ def lightHandler(evt) {
         if (isOn()) {
             indicator(160, 255)
         } else {
+            state.unwarn = false
             indicator(192, 255)
         }
         parent.updateSwitch()

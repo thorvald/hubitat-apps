@@ -1,6 +1,6 @@
 def setVersion() {
     state.name = 'Afar Room'
-    state.version = '1.0.1'
+    state.version = '1.0.2'
 }
 
 definition(
@@ -140,7 +140,7 @@ def buttonHandler(evt) {
 
     logDebug("buttonHandler ${evt.value} ${evt.name}")
 
-    anyButtonPressed()
+    anyButtonPressed(evt)
 
     if (evt.name == 'doubleTapped' && evt.integerValue == 2) {
         evt.name = 'pushed'
@@ -174,7 +174,19 @@ def timeoutDurations() {
     return [beforeWarning: 110 * 60, beforeOff: 10 * 60]
 }
 
-def anyButtonPressed() {
+def clearLightTimers() {
+    unschedule(motionTimerWarn)
+    unschedule(motionTimerOff)
+    state.button = false
+    state.warned = false
+}
+
+def anyButtonPressed(evt) {
+    def turnsLightsOn = (evt.integerValue == 1 && (evt.name == 'pushed' || evt.name == 'doubleTapped')) ||
+        (evt.integerValue == 3 && evt.name == 'pushed')
+    if (!turnsLightsOn && !isOn()) {
+        return
+    }
     logDebug('Someone reported a button press')
     state.button = true
     unschedule(motionTimerWarn)
@@ -186,12 +198,16 @@ def anyButtonPressed() {
 
 def inactive() {
     logDebug('Child reported inactive')
-    if (!isActive()) {
+    if (isOn() && !isActive()) {
         runIn(timeoutDurations().beforeWarning, motionTimerWarn)
     }
 }
 
 def motionTimerWarn() {
+    if (!isOn()) {
+        clearLightTimers()
+        return
+    }
     logDebug('Warning')
     state.warned = true
     runIn(timeoutDurations().beforeOff, motionTimerOff)
@@ -229,9 +245,9 @@ def isOn() {
 
 def updateSwitch() {
     def on = isOn()
-    indicator(on ? 96 : 1, 255)
     if (!on) {
-        logDebug('Light is off, resetting button state')
-        state.button = false
+        logDebug('All lights are off, clearing timers and warning state')
+        clearLightTimers()
     }
+    indicator(on ? 96 : 1, 255)
 }
