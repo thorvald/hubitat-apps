@@ -289,6 +289,10 @@ def motionTimerUnwarn() {
     state.unwarn = false
 }
 
+boolean hasMotionSensors() {
+    return motions != null && !motions.isEmpty()
+}
+
 def isActive() {
     def active = false
     motions.each { motion ->

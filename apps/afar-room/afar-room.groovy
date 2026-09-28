@@ -164,27 +164,37 @@ def active() {
     }
 }
 
+def timeoutDurations() {
+    if (!state.button) {
+        return [beforeWarning: warnTime != null ? (warnTime as Integer) : 60, beforeOff: 30]
+    }
+    if (childApps.any { child -> child.hasMotionSensors() }) {
+        return [beforeWarning: 10 * 60, beforeOff: 2 * 60]
+    }
+    return [beforeWarning: 110 * 60, beforeOff: 10 * 60]
+}
+
 def anyButtonPressed() {
     logDebug('Someone reported a button press')
     state.button = true
     unschedule(motionTimerWarn)
     unschedule(motionTimerOff)
     if (!isActive()) {
-        runIn(110 * 60, motionTimerWarn)
+        runIn(timeoutDurations().beforeWarning, motionTimerWarn)
     }
 }
 
 def inactive() {
     logDebug('Child reported inactive')
     if (!isActive()) {
-        runIn(state.button ? 110 * 60 : (warnTime != null ? (warnTime as Integer) : 60), motionTimerWarn)
+        runIn(timeoutDurations().beforeWarning, motionTimerWarn)
     }
 }
 
 def motionTimerWarn() {
     logDebug('Warning')
     state.warned = true
-    runIn(state.button ? 600 : 30, motionTimerOff)
+    runIn(timeoutDurations().beforeOff, motionTimerOff)
     childApps.each { child ->
         child.motionTimerWarn()
     }
