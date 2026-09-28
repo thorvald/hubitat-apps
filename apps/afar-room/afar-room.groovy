@@ -1,6 +1,6 @@
 def setVersion() {
     state.name = 'Afar Room'
-    state.version = '1.0.0'
+    state.version = '1.0.1'
 }
 
 definition(

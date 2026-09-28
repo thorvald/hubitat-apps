@@ -1,9 +1,9 @@
 {
   "packageName": "Afar Room",
   "author": "Thorvald Natvig",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dateReleased": "2026-09-27",
-  "releaseNotes": "Initial HPM package containing Afar Room and Afar Room Child.",
+  "releaseNotes": "Button activity now uses 10 minutes before warning and 2 minutes before off when any child has a motion sensor. Fix section-heading and master-switch logging typos.",
   "apps": [
     {
       "id": "cfaf60d8-59f3-42d3-9af6-afc919a028fb",
