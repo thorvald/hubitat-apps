@@ -1,0 +1,35 @@
+{
+  "packageName": "Mitsubishi Comfort",
+  "minimumHEVersion": "2.2.9",
+  "author": "Thorvald Natvig",
+  "version": "1.0.0",
+  "dateReleased": "2026-11-11",
+  "releaseNotes": "Initial release. Adds the indoor units of a Mitsubishi Comfort (Kumo Cloud) account as thermostat devices with mode, setpoints, fan speed and air direction. Changes arrive live over the Comfort cloud's websocket, with a timed read as a backstop.",
+  "apps": [
+    {
+      "id": "04fc46bd-5203-46b0-9725-586e29c4f55c",
+      "name": "Mitsubishi Comfort",
+      "namespace": "thorvald",
+      "location": "https://raw.githubusercontent.com/thorvald/hubitat-apps/main/apps/mitsubishi-comfort/mitsubishi-comfort.groovy",
+      "required": true,
+      "oauth": false,
+      "primary": true
+    }
+  ],
+  "drivers": [
+    {
+      "id": "37622ad2-3b1c-4b8f-96fe-db9ea7d409f5",
+      "name": "Mitsubishi Comfort Unit",
+      "namespace": "thorvald",
+      "location": "https://raw.githubusercontent.com/thorvald/hubitat-apps/main/apps/mitsubishi-comfort/mitsubishi-comfort-unit.groovy",
+      "required": true
+    },
+    {
+      "id": "cb63442d-87f2-4c52-a27c-b53ea42c7816",
+      "name": "Mitsubishi Comfort Stream",
+      "namespace": "thorvald",
+      "location": "https://raw.githubusercontent.com/thorvald/hubitat-apps/main/apps/mitsubishi-comfort/mitsubishi-comfort-stream.groovy",
+      "required": true
+    }
+  ]
+}

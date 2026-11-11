@@ -13,6 +13,17 @@
       ],
       "location": "https://raw.githubusercontent.com/thorvald/hubitat-apps/main/apps/afar-room/packageManifest.json",
       "description": "Room lighting automation with linked parent and child apps, motion sensors, and button controls."
+    },
+    {
+      "name": "Mitsubishi Comfort",
+      "category": "Integrations",
+      "tags": [
+        "Climate Control",
+        "Cloud",
+        "Temperature & Humidity"
+      ],
+      "location": "https://raw.githubusercontent.com/thorvald/hubitat-apps/main/apps/mitsubishi-comfort/packageManifest.json",
+      "description": "Mitsubishi Comfort (Kumo Cloud) indoor units as thermostat devices, controlled through the Comfort cloud."
     }
   ]
 }

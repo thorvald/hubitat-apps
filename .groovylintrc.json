@@ -7,7 +7,11 @@
     "convention.FieldTypeRequired": "off",
     "convention.MethodParameterTypeRequired": "off",
     "convention.MethodReturnTypeRequired": "off",
+    "convention.NoDouble": "off",
     "comments.ClassJavadoc": "off",
+    "size.MethodCount": {
+      "maxMethods": 60
+    },
     "formatting.Indentation": {
       "spacesPerIndentLevel": 4,
       "severity": "info"
